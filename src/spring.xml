@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+  xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/data/mongo
+    http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+    http://www.directwebremoting.org/schema/spring-dwr
+    http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd">
+
+	
+	<bean id="traingle" class="temp.Traingle" autowire="byName" scope="singleton" >
+		<!-- <property name="type" value="Equilateral"></property> -->
+	<!-- 	<property name="pointA" ref="pointA"></property>
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property>
+	 -->	
+		<!-- <constructor-arg value="Equilateral"/> -->
+		
+	<!-- 	<property name="points">
+			<list>
+				<ref bean="pointA"/>
+				<ref bean="pointB"/>
+				<ref bean="pointC"/>
+			</list>
+		</property>
+	 -->
+	 
+	 	
+	</bean>
+	
+	
+<!-- 		<bean id="circle" class="temp.circle">
+			<property name="pointA" ref="pointA"/>
+		</bean>
+ -->	
+	
+	
+	<bean id="pointA" class="temp.Point">
+		<property name="x" value="0"></property>
+		 <property name="y" value="0"></property> 
+	</bean>
+	
+	<bean id="pointB" class="temp.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="20"></property>
+	</bean>
+
+	<bean id="pointC" class="temp.Point">
+		<property name="x" value="10"></property>
+		<property name="y" value="10"></property>
+	</bean>
+	
+	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/> -->
+	<!-- <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/> -->
+	
+	<context:annotation-config/>
+	
+	<context:component-scan base-package="temp"></context:component-scan>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>mymsg</value>
+			</list>
+		</property>
+	</bean>
+	
+</beans>
